@@ -1,0 +1,79 @@
+.smi1-rf-white a {color: #087; text-decoration:underline}
+
+.logo2 { box-shadow:3px 3px 4px #321; 
+border-radius: 0px; width:48px; height:auto;}
+
+.c-icon-row h2 {
+  background: linear-gradient(to right, #000 20%, #098 30%, #087 70%, #000 80%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: textShine 7s ease-in-out infinite alternate;
+}
+
+@keyframes textShine {
+  to {
+    background-position: 200%;
+  }
+}
+
+.anim-0
+{ 
+  
+ background: linear-gradient(124deg, #990033, #ee4600,#990033, #ee4600,#990033, #ee4600,#990033);
+    background-size: 300% 300%;
+  
+-webkit-animation: rainbow 6s ease infinite;
+-z-animation: rainbow 6s ease infinite;
+-o-animation: rainbow 6s ease infinite;
+  animation: rainbow 6s ease infinite;
+}
+
+
+.anim-1 a:hover, input.anim-1:hover, .anim-2
+{ 
+ background: linear-gradient(124deg, #0BA, #087, #0BA, #087, #0BA, #087, #0BA);
+    background-size: 300% 300%;
+  
+-webkit-animation: rainbow 6s ease infinite;
+-z-animation: rainbow 6s ease infinite;
+-o-animation: rainbow 6s ease infinite;
+  animation: rainbow 6s ease infinite;
+}
+
+@-webkit-keyframes rainbow 
+{
+    0%{background-position:3% 82%}
+    50%{background-position:97% 19%}
+    100%{background-position:3% 82%}
+}
+
+@-moz-keyframes rainbow 
+{
+    0%{background-position:3% 82%}    
+    50%{background-position:97% 19%}
+    100%{background-position:3% 82%}
+}
+
+@-o-keyframes rainbow 
+{
+    0%{background-position:3% 82%}
+    50%{background-position:97% 19%}
+    100%{background-position:3% 82%}
+}
+
+@keyframes rainbow 
+{ 
+    0%{background-position:3% 82%}
+    50%{background-position:97% 19%}
+    100%{background-position:3% 82%}
+}
+
+.white-text-link a,
+.white-text-link a:hover,
+.white-text-link a:visited
+{
+ color:white !important;
+}

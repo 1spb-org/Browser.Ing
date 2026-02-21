@@ -1,0 +1,95 @@
+﻿@using System.Reflection 
+@using System.Runtime.InteropServices
+
+<div class="row">
+    <div class="col s12 m3">
+
+        <p>Current time:</p>
+        <p><strong style="font-size:3em">@currentTime</strong></p>
+        <p>.NET version: <strong>@RuntimeInformation.FrameworkDescription</strong></p>
+    </div>
+    <div class="col s12 m3">
+        <div>
+            <p>Action example:</p>
+            <button class="btn btn-primary anim-2" @onclick="IncrementCount">
+                Press me! (C#)
+            </button>
+        </div>
+    </div>
+    <div class="col s12 m3">
+        <p>
+            Fibonacci counter: <div>
+                <span style="font-size: 1.5em; color: darkslateblue;">@count</span> =
+                <span style="font-size: 1.5em; color: darkorange;">@prev</span> +
+                <span style="font-size: 1.5em; color: darkred;">@tail</span>
+            </div>
+            Order:
+            <span style="font-size: 1.5em; color: darkgreen;">@order</span>
+        </p>
+    </div>
+    <div class="col s12 m3">
+        <div>
+            <p>Calling Process ID</p>
+            <button class="btn btn-secondary anim-0" @onclick="GetProcessInfo">
+                Get!
+            </button>
+            @if (!string.IsNullOrEmpty(processInfo))
+            {
+                <div style="margin-top: 10px; color: green;">
+                    @processInfo
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@code {
+    private ulong prev = 1;
+    private ulong countprev = 1;
+    private ulong tail = 0;
+    private ulong count = 1;
+    private ulong order = 3;
+    private string currentTime = DateTime.Now.ToString("HH:mm:ss");
+    private string? processInfo;
+
+    private void IncrementCount()
+    {
+        if (count > ulong.MaxValue / 2 || countprev > ulong.MaxValue / 2)
+        {
+            prev = countprev = 1;
+            tail = 0;
+            count = 1;
+            order = 3;
+            return;
+        }
+        prev = count;
+        count = count + countprev;
+        tail = countprev;
+        countprev = prev;
+        order++;
+    }
+     
+    private void GetProcessInfo()
+    {
+        var pid = System.Diagnostics.Process.GetCurrentProcess().Id;
+        processInfo = $"Browser.Ing process ID is {pid}";
+    }
+
+    private System.Timers.Timer? _timer;
+
+    protected override void OnInitialized()
+    {
+        _timer = new System.Timers.Timer(1000);
+        _timer.Elapsed += (s, e) =>
+        {
+            currentTime = DateTime.Now.ToString("HH:mm:ss");
+            InvokeAsync(StateHasChanged); 
+        };
+        _timer.Start();
+    }
+
+    public void Dispose()
+    {
+        _timer?.Dispose(); // Clean up to avoid memory leaks
+    }
+}
