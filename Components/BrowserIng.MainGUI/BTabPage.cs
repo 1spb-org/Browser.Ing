@@ -31,7 +31,7 @@ namespace BrowserIng.MainGUI
 
             blazorWebView1.WebView.NavigationCompleted += WebView_NavigationCompleted;
             blazorWebView1.WebView.NavigationStarting += WebView_NavigationStarting;
-         
+                      
             if (_f._cfg.UseBlazor || (_f._cmdLine.Blazor ?? false))
                 TuneHomeBlazor();
             else 
@@ -58,15 +58,15 @@ namespace BrowserIng.MainGUI
 
        private void TuneHomeBlazor()
        {
-            blazorWebView1.BlazorWebViewInitializing += WebView2Initializing;
-            blazorWebView1.WebView.CoreWebView2InitializationCompleted += Webview_CoreWebView2InitializationCompleted;
+             blazorWebView1.BlazorWebViewInitializing += WebView2Initializing;
+             blazorWebView1.WebView.CoreWebView2InitializationCompleted += Webview_CoreWebView2InitializationCompleted;
 
-           //  SetWebBrowserEnvironment();
-           
-            var services = new ServiceCollection();
-            services.AddWindowsFormsBlazorWebView();
+            //  SetWebBrowserEnvironment();
 
-            blazorWebView1.Services = services.BuildServiceProvider();
+            // var services = new ServiceCollection();
+            // services.AddWindowsFormsBlazorWebView();
+
+            blazorWebView1.Services = _f._services.BuildServiceProvider();  // services.BuildServiceProvider();
         }
 
         private void WebView2Initializing(object? sender, BlazorWebViewInitializingEventArgs e)
