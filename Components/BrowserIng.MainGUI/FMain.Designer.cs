@@ -37,17 +37,19 @@
             toolStripButton8 = new ToolStripButton();
             toolStripButton7 = new ToolStripButton();
             toolStripButton6 = new ToolStripButton();
+            toolStripButton4 = new ToolStripButton();
             toolStripButton1 = new ToolStripButton();
             toolStripButton2 = new ToolStripButton();
             toolStripButton3 = new ToolStripButton();
             toolStripButton9 = new ToolStripButton();
-            toolStripButton4 = new ToolStripButton();
             toolStripSeparator2 = new ToolStripSeparator();
             _urlBarTextBox = new ToolStripSpringTextBox();
             toolStripSeparator3 = new ToolStripSeparator();
             toolStripButton10 = new ToolStripButton();
             toolStripButton5 = new ToolStripButton();
             imageList2 = new ImageList(components);
+            toolStripSeparator1 = new ToolStripSeparator();
+            toolStripButton11 = new ToolStripButton();
             toolStripContainer1.ContentPanel.SuspendLayout();
             toolStripContainer1.TopToolStripPanel.SuspendLayout();
             toolStripContainer1.SuspendLayout();
@@ -92,10 +94,10 @@
             toolStrip2.BackColor = Color.Transparent;
             toolStrip2.Dock = DockStyle.None;
             toolStrip2.ImageList = imageList1;
-            toolStrip2.Items.AddRange(new ToolStripItem[] { toolStripButton8, toolStripButton7, toolStripButton6, toolStripButton4, toolStripButton1, toolStripButton2, toolStripButton3, toolStripButton9, toolStripSeparator2, _urlBarTextBox, toolStripSeparator3, toolStripButton10, toolStripButton5 });
+            toolStrip2.Items.AddRange(new ToolStripItem[] { toolStripButton8, toolStripButton7, toolStripButton6, toolStripButton4, toolStripButton1, toolStripButton2, toolStripButton3, toolStripButton9, toolStripSeparator2, _urlBarTextBox, toolStripButton11, toolStripSeparator3, toolStripButton5, toolStripSeparator1, toolStripButton10 });
             toolStrip2.Location = new Point(3, 0);
             toolStrip2.Name = "toolStrip2";
-            toolStrip2.Size = new Size(1018, 25);
+            toolStrip2.Size = new Size(1079, 25);
             toolStrip2.TabIndex = 1;
             // 
             // imageList1
@@ -281,6 +283,16 @@
             toolStripButton6.Text = "GO";
             toolStripButton6.Click += toolStripButton6_Click;
             // 
+            // toolStripButton4
+            // 
+            toolStripButton4.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            toolStripButton4.Image = (Image)resources.GetObject("toolStripButton4.Image");
+            toolStripButton4.ImageTransparentColor = Color.Magenta;
+            toolStripButton4.Name = "toolStripButton4";
+            toolStripButton4.Size = new Size(58, 22);
+            toolStripButton4.Text = "REFRESH";
+            toolStripButton4.Click += toolStripButton4_Click;
+            // 
             // toolStripButton1
             // 
             toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Text;
@@ -320,16 +332,6 @@
             toolStripButton9.Size = new Size(46, 22);
             toolStripButton9.Text = "CLOSE";
             toolStripButton9.Click += toolStripButton9_Click;
-            // 
-            // toolStripButton4
-            // 
-            toolStripButton4.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            toolStripButton4.Image = (Image)resources.GetObject("toolStripButton4.Image");
-            toolStripButton4.ImageTransparentColor = Color.Magenta;
-            toolStripButton4.Name = "toolStripButton4";
-            toolStripButton4.Size = new Size(58, 22);
-            toolStripButton4.Text = "REFRESH";
-            toolStripButton4.Click += toolStripButton4_Click;
             // 
             // toolStripSeparator2
             // 
@@ -522,6 +524,21 @@
             imageList2.Images.SetKeyName(145, "user.ico");
             imageList2.Images.SetKeyName(146, "еxport.ico");
             // 
+            // toolStripSeparator1
+            // 
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(6, 25);
+            // 
+            // toolStripButton11
+            // 
+            toolStripButton11.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            toolStripButton11.Image = (Image)resources.GetObject("toolStripButton11.Image");
+            toolStripButton11.ImageTransparentColor = Color.Magenta;
+            toolStripButton11.Name = "toolStripButton11";
+            toolStripButton11.Size = new Size(55, 22);
+            toolStripButton11.Text = "SEARCH";
+            toolStripButton11.Click += toolStripButton11_Click;
+            // 
             // FMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -563,5 +580,7 @@
         internal ToolStripSpringTextBox _urlBarTextBox;
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripSeparator toolStripSeparator3;
+        private ToolStripButton toolStripButton11;
+        private ToolStripSeparator toolStripSeparator1;
     }
 }

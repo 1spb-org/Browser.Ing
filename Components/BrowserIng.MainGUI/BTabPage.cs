@@ -32,7 +32,7 @@ namespace BrowserIng.MainGUI
             blazorWebView1.WebView.NavigationCompleted += WebView_NavigationCompleted;
             blazorWebView1.WebView.NavigationStarting += WebView_NavigationStarting;
                       
-            if (_f._cfg.UseBlazor || (_f._cmdLine.Blazor ?? false))
+            if (_f._cfg.UseBlazor || _f._cmdLine.Blazor)
                 TuneHomeBlazor();
             else 
                 SetWebBrowserEnvironment();

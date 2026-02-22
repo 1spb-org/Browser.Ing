@@ -39,7 +39,7 @@ namespace BrowserIng.MainGUI
 
             InitializeComponent();
 
-            SetupDataDir(); 
+            SetupDataDir();
 
             LoadSettings();
 
@@ -139,6 +139,9 @@ namespace BrowserIng.MainGUI
 
             toolStripButton10.ImageIndex = 98;
             toolStripButton10.DisplayStyle = ToolStripItemDisplayStyle.Image;
+
+            toolStripButton11.ImageIndex = 126;
+            toolStripButton11.DisplayStyle = ToolStripItemDisplayStyle.Image;
         }
 
         public void SetListener(IBrowserIngListener lsnr)
@@ -355,6 +358,12 @@ namespace BrowserIng.MainGUI
                 BWV.WebView.CoreWebView2.OpenDevToolsWindow();
             }
         }
+
+        private void toolStripButton11_Click(object sender, EventArgs e)
+        {
+            var u =  _cfg.SearchUri.Replace("{q}", _urlBarTextBox.Text);
+            BWV?.WebView.CoreWebView2?.Navigate(u);
+        }
     }
 
     public class Cfg
@@ -403,7 +412,7 @@ namespace BrowserIng.MainGUI
 
     public static class _EXT_
     {
-        public static Uri? GetUri(this string s, string search = null)
+        public static Uri? GetUri(this string s, string? search = null)
         {
             try
             {

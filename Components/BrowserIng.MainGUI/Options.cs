@@ -1,34 +1,28 @@
 ﻿using CommandLine.Text;
-using CommandLine; 
+using CommandLine;
+using System.Diagnostics;
 
 namespace BrowserIng
 {
-    interface IOptions
+    public class Arg 
     {
+        [Option('b', "blazor",
+            HelpText = "Uses Blazor", Default = false, Required = false)]
+       public bool Blazor { get; set; }
+
 
         [Option('d', "user-data-dir",
-            SetName = "user-data-dir",
-            HelpText = "User data directory")]
-        string? UserDataDir { get; set; }
-
-        [Option('b', "blazor",
-            SetName = "blazor",
-            HelpText = "Uses Blazor")]
-        bool? Blazor { get; set; }
+            HelpText = "User data directory", Required = false )]
+       public string? UserDataDir { get; set; }
 
 
         [Value(0, MetaName = "input URI",
             HelpText = "Input URI to be processed.",
             Required = false)]
-        string URI { get; set; }
+        public string? URI { get; set; }
     }
 
      
-    class Arg : IOptions
-    {
-        public string? UserDataDir { get; set; }
-        public string URI { get; set; }
-        public bool? Blazor { get; set; }
-    }
+  
 
 }
